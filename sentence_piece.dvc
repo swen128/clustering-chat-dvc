@@ -1,0 +1,17 @@
+md5: 3f888e34750db439afaeaab0837bce84
+cmd: PYTHONPATH=. python3 scripts/tokenize.py
+wdir: .
+deps:
+- md5: bcf98398de4fc8cb9ecdaaef083c11ea
+  path: resources/train.csv
+outs:
+- md5: 6abb0bf3e942e6e9978abd68f405f05c
+  path: resources/tokenizer/sentence_piece.vocab
+  cache: true
+  metric: false
+  persist: false
+- md5: bfabfeb76fd1a20e57401fef882de3dd
+  path: resources/tokenizer/sentence_piece.model
+  cache: true
+  metric: false
+  persist: false
