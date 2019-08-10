@@ -1,0 +1,8 @@
+md5: 6737ad4c982be3129cf674e483b7ce7a
+wdir: ..
+outs:
+- md5: 87be8f155731b5e176fbc7af909dbbad
+  path: resources/raw.csv
+  cache: true
+  metric: false
+  persist: false
