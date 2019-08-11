@@ -1,7 +1,10 @@
+from typing import List
+
 import pandas
 from gensim.models import Doc2Vec
-from clustering_chat.tokenizer import load_sentencepiece
 from numpy import ndarray
+
+from clustering_chat.tokenizer import load_sentencepiece
 
 
 def main(dataset_path: str, doc2vec_path: str, tokenizer_path: str, out_path: str, **doc2vec_infer_options):
@@ -9,10 +12,11 @@ def main(dataset_path: str, doc2vec_path: str, tokenizer_path: str, out_path: st
     doc2vec = Doc2Vec.load(doc2vec_path)
     tokenizer = load_sentencepiece(tokenizer_path).EncodeAsPieces
 
-    def infer_vector(sentence: str) -> ndarray:
-        return doc2vec.infer_vector(tokenizer(sentence), **doc2vec_infer_options)
+    def infer_vector(tokens: List[str]) -> ndarray:
+        return doc2vec.infer_vector(tokens, **doc2vec_infer_options)
 
-    df['document_vector'] = df['message'].fillna('').map(infer_vector)
+    df['tokens'] = df['message'].fillna('').map(tokenizer)
+    df['document_vector'] = df['tokens'].map(infer_vector)
     df.to_pickle(out_path)
 
 
