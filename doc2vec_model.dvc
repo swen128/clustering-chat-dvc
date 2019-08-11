@@ -14,3 +14,23 @@ outs:
   cache: true
   metric: false
   persist: false
+- md5:
+  path: resources/doc2vec_model.wv.vectors.npy
+  cache: true
+  metric: false
+  persist: false
+- md5:
+  path: resources/doc2vec_docvecs.vectors_docs.npy
+  cache: true
+  metric: false
+  persist: false
+- md5:
+  path: resources/doc2vec_model.trainables.vectors_docs_lockf.npy
+  cache: true
+  metric: false
+  persist: false
+- md5:
+  path: resources/doc2vec_model.trainables.syn1neg.npy
+  cache: true
+  metric: false
+  persist: false
