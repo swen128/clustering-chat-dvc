@@ -5,7 +5,7 @@ deps:
 - md5: 0d7a8faf6258ee20ef05cb64c96dcefb
   path: scripts/split_dataset.py
 - md5: 17f40c3a3cd68a5a80db70efb2ad58da
-  path: resources/small_sample.csv
+  path: resources/raw.csv
 outs:
 - md5: ed188901293fdc7912a084eb0d99bd74
   path: resources/train.csv
