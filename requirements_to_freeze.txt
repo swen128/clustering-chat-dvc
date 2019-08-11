@@ -1,0 +1,9 @@
+elasticsearch==6.4.0
+python-dotenv
+requests-aws4auth
+sentencepiece
+gensim
+numpy
+scikit-learn
+pandas>=0.24.0
+toolz
