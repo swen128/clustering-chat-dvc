@@ -1,0 +1,8 @@
+md5: 3043550c1133938270072cdff9e3bb73
+wdir: ..
+outs:
+- md5: 17f40c3a3cd68a5a80db70efb2ad58da
+  path: resources/small_sample.csv
+  cache: true
+  metric: false
+  persist: false

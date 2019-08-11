@@ -25,4 +25,4 @@ def main(input_path: str, output_dir: str,
 
 
 if __name__ == '__main__':
-    main('resources/raw.csv', 'resources')
+    main('resources/small_sample.csv', 'resources')
