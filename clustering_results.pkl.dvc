@@ -1,5 +1,5 @@
 md5: b75d39325df89d5bf38011f252179e83
-cmd: PYTHONPATH=. python3 scripts/clustering.py
+cmd: PYTHONPATH=. MKL_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 python3 scripts/clustering.py
 wdir: .
 deps:
 - md5: 8cbed349bf5332d609c4096bf81ef61b
