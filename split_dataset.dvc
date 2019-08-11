@@ -1,23 +1,23 @@
-md5: 2dddb87e415dc79f134844cce6fcfea0
+md5: aaaed2d3b9d4545a6c1b6b353e8440cc
 cmd: PYTHONPATH=. python3 scripts/split_dataset.py
 wdir: .
 deps:
-- md5: 6c31b4c4ff36994996d65d80d296e5b6
+- md5: 0d7a8faf6258ee20ef05cb64c96dcefb
   path: scripts/split_dataset.py
-- md5: 87be8f155731b5e176fbc7af909dbbad
-  path: resources/raw.csv
+- md5: 17f40c3a3cd68a5a80db70efb2ad58da
+  path: resources/small_sample.csv
 outs:
-- md5: bcf98398de4fc8cb9ecdaaef083c11ea
+- md5: ed188901293fdc7912a084eb0d99bd74
   path: resources/train.csv
   cache: true
   metric: false
   persist: false
-- md5: d4f5160bc1a97bd3ff9099d01b456f66
+- md5: 704f7b1597d67b5adec046b8f97b3cd3
   path: resources/dev.csv
   cache: true
   metric: false
   persist: false
-- md5: 510f5480cb646d37ec7cebd3fa24ae3d
+- md5: a13514ca98fdb1d2c9933d7e391c706e
   path: resources/test.csv
   cache: true
   metric: false

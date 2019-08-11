@@ -1,36 +1,16 @@
-md5: dd69f8bd04f21c50cdc5817b41e35deb
+md5: 578ee62914914a37c87c1540cbe1c84b
 cmd: PYTHONPATH=. python3 scripts/train_doc2vec.py
 wdir: .
 deps:
 - md5: 48e4afd8bc5afc77f7c0aa7432b17e7c
   path: scripts/train_doc2vec.py
-- md5: bfabfeb76fd1a20e57401fef882de3dd
+- md5: 6048be3456a684a262f2990de332550d
   path: resources/tokenizer/sentence_piece.model
-- md5: bcf98398de4fc8cb9ecdaaef083c11ea
+- md5: ed188901293fdc7912a084eb0d99bd74
   path: resources/train.csv
 outs:
-- md5: a0bb2170f22264cd7381c8c73b72bea6
+- md5: fc12851dbf2f25a964a4ed9fdc1f292f
   path: resources/doc2vec_model
-  cache: true
-  metric: false
-  persist: false
-- md5:
-  path: resources/doc2vec_model.wv.vectors.npy
-  cache: true
-  metric: false
-  persist: false
-- md5:
-  path: resources/doc2vec_docvecs.vectors_docs.npy
-  cache: true
-  metric: false
-  persist: false
-- md5:
-  path: resources/doc2vec_model.trainables.vectors_docs_lockf.npy
-  cache: true
-  metric: false
-  persist: false
-- md5:
-  path: resources/doc2vec_model.trainables.syn1neg.npy
   cache: true
   metric: false
   persist: false

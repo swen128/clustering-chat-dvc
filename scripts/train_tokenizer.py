@@ -14,7 +14,7 @@ if __name__ == '__main__':
     main(
         TokenizerType.SentencePiece,
         SpmType.unigram,
-        spm_vocab_size=32000,
+        spm_vocab_size=870,
         spm_character_coverage=0.9995,
         input_path='resources/train.csv',
         out_prefix='resources/tokenizer/sentence_piece'
