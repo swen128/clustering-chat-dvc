@@ -13,7 +13,7 @@ def main(dataset_path: str, doc2vec_path: str, tokenizer_path: str, out_path: st
         return doc2vec.infer_vector(tokenizer(sentence), **doc2vec_infer_options)
 
     df['document_vector'] = df['message'].fillna('').map(infer_vector)
-    df.to_csv(out_path)
+    df.to_pickle(out_path)
 
 
 if __name__ == '__main__':
@@ -21,6 +21,6 @@ if __name__ == '__main__':
         dataset_path='resources/dev.csv',
         doc2vec_path='resources/doc2vec_model',
         tokenizer_path='resources/tokenizer/sentence_piece.model',
-        out_path='resources/document_vectors.csv',
+        out_path='resources/document_vectors.pkl',
         epochs=20
     )
