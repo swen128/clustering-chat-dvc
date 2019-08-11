@@ -1,15 +1,15 @@
-md5: db64ea5bb8d25be995cfef5574a4ba53
+md5: dd69f8bd04f21c50cdc5817b41e35deb
 cmd: PYTHONPATH=. python3 scripts/train_doc2vec.py
 wdir: .
 deps:
 - md5: 48e4afd8bc5afc77f7c0aa7432b17e7c
   path: scripts/train_doc2vec.py
-- md5: 6048be3456a684a262f2990de332550d
+- md5: bfabfeb76fd1a20e57401fef882de3dd
   path: resources/tokenizer/sentence_piece.model
-- md5: ed188901293fdc7912a084eb0d99bd74
+- md5: bcf98398de4fc8cb9ecdaaef083c11ea
   path: resources/train.csv
 outs:
-- md5: 1b36b72aa80a9e152b9ade26af1dc21f
+- md5: a0bb2170f22264cd7381c8c73b72bea6
   path: resources/doc2vec_model
   cache: true
   metric: false

@@ -1,13 +1,13 @@
-md5: 90b2f7fca6af2926e5a0d669b43256ee
+md5: b75d39325df89d5bf38011f252179e83
 cmd: PYTHONPATH=. python3 scripts/clustering.py
 wdir: .
 deps:
 - md5: 8cbed349bf5332d609c4096bf81ef61b
   path: scripts/clustering.py
-- md5: a31d7928ad5e2db3c847336ea513ba54
+- md5: 2df2da5aeffe5c54f95b6bd25d436e46
   path: resources/document_vectors.pkl
 outs:
-- md5: fdb40667e1c3cfa63793dfd58e281e62
+- md5: 90791a5f1adf76a38eb5e821b59f9fe7
   path: resources/clustering_results.pkl
   cache: true
   metric: false
