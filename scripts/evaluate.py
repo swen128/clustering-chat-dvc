@@ -1,29 +1,40 @@
 import json
 import pickle
 
+import numpy
 from pandas import DataFrame
-from sklearn.metrics import normalized_mutual_info_score, adjusted_mutual_info_score
+from typing import Dict
 
 
-def eval_summary(df: DataFrame) -> dict:
-    truth = df['video.url'].values
-    clustering_labels = df['clustering_label'].values
+def vocabulary(df: DataFrame) -> Dict[str, int]:
+    tokens = numpy.concatenate(df['tokens'].to_numpy())
+    vocab, count = numpy.unique(tokens, return_counts=True)
 
-    return {
-        'NMI': normalized_mutual_info_score(truth, clustering_labels, average_method='arithmetic'),
-        'AMI': adjusted_mutual_info_score(truth, clustering_labels, average_method='arithmetic')
-    }
+    return {word: n for word, n in zip(vocab, count) if word != '▁'}
+
+
+def vocabulary_coverage(df: DataFrame) -> float:
+    representatives = df.loc[df['is_representative']]
+    all_vocab = vocabulary(df)
+    covered_vocab = vocabulary(representatives)
+
+    all_weight = sum(n for word, n in all_vocab.items())
+    covered_weight = sum(n for word, n in all_vocab.items() if word in covered_vocab)
+
+    return covered_weight / all_weight
 
 
 def main(input_path: str, out_path: str):
     with open(input_path, mode='rb') as f:
         dfs = pickle.load(f)
 
-    df_results = DataFrame(eval_summary(df) for df in dfs)
+    coverages = list(map(vocabulary_coverage, dfs))
 
     json_results = {
-        'NMI': df_results['NMI'].mean(),
-        'AMI': df_results['AMI'].mean(),
+        'vocabulary_coverage_mean': numpy.average(coverages),
+        'vocabulary_coverage_median': numpy.median(coverages),
+        'vocabulary_coverage_max': max(coverages),
+        'vocabulary_coverage_min': min(coverages),
     }
 
     with open(out_path, mode='w') as f:
