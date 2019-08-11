@@ -7,3 +7,4 @@
 /document_vectors.csv
 /document_vectors.pkl
 /clustering_results.pkl
+/eval.json
