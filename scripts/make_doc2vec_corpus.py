@@ -9,7 +9,7 @@ def main(tokenizer_path: str, train_data_path: str, out_path: str):
     with open(out_path, mode='w', encoding='utf-8') as fp_out:
         with open(train_data_path, encoding='utf-8') as fp_in:
             for line in fp_in:
-                tokens = tokenizer.EncodeAsPieces(line)[1:]
+                tokens = tokenizer.EncodeAsPieces(line)
                 out_line = ' '.join(tokens) + '\n'
                 fp_out.write(out_line)
 
