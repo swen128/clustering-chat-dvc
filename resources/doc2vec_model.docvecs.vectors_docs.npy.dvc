@@ -1,0 +1,8 @@
+md5: 81b23693768ec9f2ec0be33e4c4e9003
+wdir: ..
+outs:
+- md5: b2ebbf7b60dee5110aedee9b1e718efc
+  path: resources/doc2vec_model.docvecs.vectors_docs.npy
+  cache: true
+  metric: false
+  persist: false
