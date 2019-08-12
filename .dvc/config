@@ -1,2 +1,3 @@
-['remote "gcs"']
-url = gs://pnd-dvc-remote
+
+['remote "s3"']
+url = s3://pnd-dvc-remote/clustering_chat
