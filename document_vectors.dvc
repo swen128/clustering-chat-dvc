@@ -1,17 +1,17 @@
-md5: 6df93215c5022b06735e400aca9a8015
+md5: 89639d03bf12f1fdbd6aa42811e2de6b
 cmd: PYTHONPATH=. python3 scripts/infer_document_vectors.py
 wdir: .
 deps:
 - md5: f5e3bf54ebaddc687740c0584fae5dcb
   path: scripts/infer_document_vectors.py
-- md5: 704f7b1597d67b5adec046b8f97b3cd3
+- md5: d4f5160bc1a97bd3ff9099d01b456f66
   path: resources/dev.csv
-- md5: fc12851dbf2f25a964a4ed9fdc1f292f
+- md5: 5bfb5672117878c2ba19f35f2965e8a5
   path: resources/doc2vec_model
-- md5: 6048be3456a684a262f2990de332550d
+- md5: bfabfeb76fd1a20e57401fef882de3dd
   path: resources/tokenizer/sentence_piece.model
 outs:
-- md5: 31548b0b3301951ebdc84f17865f2fa2
+- md5: e78bf2400effb5b225f829e140231ed3
   path: resources/document_vectors.pkl
   cache: true
   metric: false
