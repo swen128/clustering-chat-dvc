@@ -1,0 +1,2 @@
+['remote "gcs"']
+url = gs://pnd-dvc-remote
