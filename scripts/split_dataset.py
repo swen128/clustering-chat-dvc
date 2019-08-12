@@ -13,15 +13,15 @@ def main(input_path: str, output_dir: str,
     train, others = train_test_split(dfs, train_size=r_train, random_state=random_seed)
     dev, test = train_test_split(others, train_size=r_dev / (r_dev + r_test), random_state=random_seed)
 
-    train_df = pandas.concat(train)[['message']]
+    train_df = pandas.concat(train)
     dev_df = pandas.concat(dev)
     test_df = pandas.concat(test)
 
-    dfs = [train_df, dev_df, test_df]
-    output_paths = [Path(output_dir) / (x + '.csv') for x in ['train', 'dev', 'test']]
+    out_dir = Path(output_dir)
 
-    for df, output_path in zip(dfs, output_paths):
-        df.to_csv(output_path)
+    train_df['message'].to_csv(out_dir / 'train.txt', index=False)
+    dev_df.to_csv(out_dir / 'dev.csv')
+    test_df.to_csv(out_dir / 'test.csv')
 
 
 if __name__ == '__main__':

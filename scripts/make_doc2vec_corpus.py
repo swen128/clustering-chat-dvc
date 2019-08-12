@@ -17,6 +17,6 @@ def main(tokenizer_path: str, train_data_path: str, out_path: str):
 if __name__ == '__main__':
     main(
         tokenizer_path='resources/tokenizer/sentence_piece.model',
-        train_data_path='resources/train.csv',
+        train_data_path='resources/train.txt',
         out_path='resources/doc2vec_corpus.txt'
     )

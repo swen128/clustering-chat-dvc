@@ -7,7 +7,7 @@ deps:
 - md5:
   path: resources/tokenizer/sentence_piece.model
 - md5:
-  path: resources/train.csv
+  path: resources/train.txt
 outs:
 - md5:
   path: resources/doc2vec_corpus.txt

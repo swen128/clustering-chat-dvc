@@ -5,7 +5,7 @@ deps:
 - md5: a89eed36c40cb6d52dabb10cbc17c186
   path: scripts/train_tokenizer.py
 - md5: bcf98398de4fc8cb9ecdaaef083c11ea
-  path: resources/train.csv
+  path: resources/train.txt
 outs:
 - md5: bfabfeb76fd1a20e57401fef882de3dd
   path: resources/tokenizer/sentence_piece.model

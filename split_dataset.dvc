@@ -7,8 +7,8 @@ deps:
 - md5: 87be8f155731b5e176fbc7af909dbbad
   path: resources/raw.csv
 outs:
-- md5: bcf98398de4fc8cb9ecdaaef083c11ea
-  path: resources/train.csv
+- md5:
+  path: resources/train.txt
   cache: true
   metric: false
   persist: false

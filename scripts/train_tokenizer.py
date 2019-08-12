@@ -16,6 +16,6 @@ if __name__ == '__main__':
         SpmType.unigram,
         spm_vocab_size=32000,
         spm_character_coverage=0.9995,
-        input_path='resources/train.csv',
+        input_path='resources/train.txt',
         out_prefix='resources/tokenizer/sentence_piece'
     )
