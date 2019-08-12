@@ -3,7 +3,7 @@ cmd: PYTHONPATH=. python3 scripts/make_doc2vec_corpus.py
 wdir: .
 deps:
 - md5:
-  path: scripts/doc2vec_corpus.py
+  path: scripts/make_doc2vec_corpus.py
 - md5:
   path: resources/tokenizer/sentence_piece.model
 - md5:
