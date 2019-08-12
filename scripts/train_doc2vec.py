@@ -1,4 +1,5 @@
 import logging
+from typing import List
 
 from gensim.models import Doc2Vec
 
@@ -16,9 +17,12 @@ logger_gensim.addHandler(stream_handler)
 
 
 def main(tokenizer_path: str, train_data_path: str, out_path: str, **doc2vec_train_options):
-    tokenizer = load_sentencepiece(tokenizer_path).EncodeAsPieces
+    tokenizer = load_sentencepiece(tokenizer_path)
 
-    corpus = Corpus(train_data_path, preprocess=tokenizer)
+    def tokenize(sentence: str) -> List[str]:
+        return tokenizer.EncodeAsPieces(sentence)[1:]
+
+    corpus = Corpus(train_data_path, preprocess=tokenize)
     doc2vec = Doc2Vec(corpus, **doc2vec_train_options)
 
     doc2vec.save(out_path)
@@ -29,6 +33,6 @@ if __name__ == '__main__':
         tokenizer_path='resources/tokenizer/sentence_piece.model',
         train_data_path='resources/train.csv',
         out_path='resources/doc2vec_model',
-        workers=4,
-        vector_size=300
+        workers=20,
+        vector_size=100
     )
