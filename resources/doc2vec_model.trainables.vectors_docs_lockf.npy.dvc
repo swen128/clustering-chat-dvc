@@ -1,0 +1,8 @@
+md5: eb850e71a0b15b63f506c622a324d4ab
+wdir: ..
+outs:
+- md5: 280b75f00a2720ebffc1564dd630eb8e
+  path: resources/doc2vec_model.trainables.vectors_docs_lockf.npy
+  cache: true
+  metric: false
+  persist: false
