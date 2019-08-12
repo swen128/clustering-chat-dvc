@@ -12,3 +12,4 @@
 /doc2vec_model.docvecs.vectors_docs.npy
 /doc2vec_model.trainables.vectors_docs_lockf.npy
 /doc2vec_model.trainables.syn1neg.npy
+/random_baseline.json

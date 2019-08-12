@@ -1,0 +1,14 @@
+md5: b0054623794bf5e286d12b04200ed0dc
+cmd: PYTHONPATH=. python3 scripts/random_baseline.py
+wdir: .
+deps:
+- md5: d5462795a4edb103e887b8af8ce7d6a2
+  path: resources/clustering_results.pkl
+- md5: 0b5df128c17b1af51d64e5a2417b221f
+  path: scripts/random_baseline.py
+outs:
+- md5: d326130303b31830b6eb3d6cea1d0ca0
+  path: resources/random_baseline.json
+  cache: true
+  metric: false
+  persist: false
