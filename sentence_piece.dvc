@@ -1,18 +1,18 @@
-md5: f5a299bbd27d069e066a5f9acf18216e
+md5: 886a6ee5c39251e4199681fd10759ca6
 cmd: PYTHONPATH=. python3 scripts/train_tokenizer.py
 wdir: .
 deps:
-- md5: a89eed36c40cb6d52dabb10cbc17c186
+- md5: ecec07f47b3b253255f53fd47991ba01
   path: scripts/train_tokenizer.py
-- md5: bcf98398de4fc8cb9ecdaaef083c11ea
+- md5: 092db26f5352617fb7170d97378bb60a
   path: resources/train.txt
 outs:
-- md5: bfabfeb76fd1a20e57401fef882de3dd
+- md5: ba2d5a19bd00f3eda69b64ddaef36a9a
   path: resources/tokenizer/sentence_piece.model
   cache: true
   metric: false
   persist: false
-- md5: 6abb0bf3e942e6e9978abd68f405f05c
+- md5: 07590caf3aef557084a08696ba82b9c8
   path: resources/tokenizer/sentence_piece.vocab
   cache: true
   metric: false

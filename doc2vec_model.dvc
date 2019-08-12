@@ -1,13 +1,13 @@
-md5: 917a11320d17af2118190a4c65f7a0e9
+md5: 4baf8b652e7d177524d131a36305e3b2
 cmd: PYTHONPATH=. python3 scripts/train_doc2vec.py
 wdir: .
 deps:
-- md5:
+- md5: adfae1b92951a3bdb548a1ffb363b375
   path: scripts/train_doc2vec.py
-- md5:
+- md5: c3838014dad9c95416362f19c3405558
   path: resources/doc2vec_corpus.txt
 outs:
-- md5: 5bfb5672117878c2ba19f35f2965e8a5
+- md5: 87bc597c377d47192106ae9693110e79
   path: resources/doc2vec_model
   cache: true
   metric: false

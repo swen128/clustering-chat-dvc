@@ -1,15 +1,15 @@
-md5:
+md5: 3626c75a25f7f80262305a854e7897ed
 cmd: PYTHONPATH=. python3 scripts/make_doc2vec_corpus.py
 wdir: .
 deps:
-- md5:
+- md5: 365fb8cc22f30ee0c16f9bf6d6f2f99f
   path: scripts/make_doc2vec_corpus.py
-- md5:
+- md5: ba2d5a19bd00f3eda69b64ddaef36a9a
   path: resources/tokenizer/sentence_piece.model
-- md5:
+- md5: 092db26f5352617fb7170d97378bb60a
   path: resources/train.txt
 outs:
-- md5:
+- md5: c3838014dad9c95416362f19c3405558
   path: resources/doc2vec_corpus.txt
   cache: true
   metric: false

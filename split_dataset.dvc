@@ -1,13 +1,13 @@
-md5: 2dddb87e415dc79f134844cce6fcfea0
+md5: 926ed102904053028e22a967e074d651
 cmd: PYTHONPATH=. python3 scripts/split_dataset.py
 wdir: .
 deps:
-- md5: 6c31b4c4ff36994996d65d80d296e5b6
+- md5: 0e820e62e528001059766c29a919d4e4
   path: scripts/split_dataset.py
 - md5: 87be8f155731b5e176fbc7af909dbbad
   path: resources/raw.csv
 outs:
-- md5:
+- md5: 092db26f5352617fb7170d97378bb60a
   path: resources/train.txt
   cache: true
   metric: false

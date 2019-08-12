@@ -1,13 +1,13 @@
-md5: 2e93518804c204117d5d9749a6a25c17
+md5: b98ce5c0f9bba860afaf2d3e83e17bb5
 cmd: PYTHONPATH=. python3 scripts/evaluate.py
 wdir: .
 deps:
 - md5: 68e9458a2b4b6ff7b23a3996435a7a7a
   path: scripts/evaluate.py
-- md5: eeecc5843327ecae73f5faf01eac4886
+- md5: e4ee42f7660131ef2de0c23d5f15fcaa
   path: resources/clustering_results.pkl
 outs:
-- md5: 4e6c71dedf61185fb91694d5ff40813b
+- md5: 712e9cbeac5cd6e85424c9a1241ce492
   path: resources/eval.json
   cache: true
   metric: true

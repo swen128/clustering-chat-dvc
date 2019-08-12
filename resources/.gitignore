@@ -13,3 +13,5 @@
 /doc2vec_model.trainables.vectors_docs_lockf.npy
 /doc2vec_model.trainables.syn1neg.npy
 /random_baseline.json
+/train.txt
+/doc2vec_corpus.txt
