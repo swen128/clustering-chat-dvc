@@ -1,0 +1,9 @@
+/model
+/model.docvecs.vectors.npy
+/model.docvecs.vectors_docs.npy
+/model.trainables.syn1neg.npy
+/model.trainables.vectors_lockf.npy
+/model.trainables.vectors_docs_lockf.npy
+/model.vocabulary.cum_table.npy
+/model.wv.vectors.npy
+

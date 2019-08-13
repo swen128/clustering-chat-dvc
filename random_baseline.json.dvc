@@ -1,13 +1,13 @@
-md5: 1b8ecf43d9f4fa3963e3e679e9d6b09a
+md5: ac8abc5707754424bc0f314296708a5e
 cmd: PYTHONPATH=. python3 scripts/random_baseline.py
 wdir: .
 deps:
-- md5: 401e22c6d5fa68bc144283b808081d31
+- md5: c839f979e43d35cd1ad17be6e5bba4ce
   path: resources/clustering_results.pkl
-- md5: 0b5df128c17b1af51d64e5a2417b221f
+- md5: fd597714b30e9700c67ebb1b14b12076
   path: scripts/random_baseline.py
 outs:
-- md5: db4b1fd257d91f65660c48d9c0eaebf1
+- md5: 216a67b1afbec7dd0f917f341893c42e
   path: resources/random_baseline.json
   cache: true
   metric: false
