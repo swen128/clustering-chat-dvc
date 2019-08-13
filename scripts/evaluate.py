@@ -3,7 +3,7 @@ import pickle
 
 import numpy
 from pandas import DataFrame
-from typing import Dict
+from typing import Dict, Iterable
 
 from sklearn.metrics import calinski_harabasz_score, silhouette_score, davies_bouldin_score
 from toolz import merge
@@ -35,9 +35,9 @@ def clustering_scores(df: DataFrame) -> Dict[str, float]:
     labels = df['clustering_label']
 
     return dict(
-        chs=calinski_harabasz_score(X, labels),
-        db=davies_bouldin_score(X, labels),
-        silhouette=silhouette_score(X, labels, random_state=0)
+        Calinski_Harabasz=calinski_harabasz_score(X, labels),
+        Davies_Bouldin=davies_bouldin_score(X, labels),
+        Silhouette=silhouette_score(X, labels, random_state=0)
     )
 
 
@@ -48,11 +48,15 @@ def all_scores(df: DataFrame) -> Dict[str, float]:
     )
 
 
+def aggregate_scores(dfs: Iterable[DataFrame]) -> Dict[str, float]:
+    return DataFrame(map(all_scores, dfs)).median().to_dict()
+
+
 def main(input_path: str, out_path: str):
     with open(input_path, mode='rb') as f:
         dfs = pickle.load(f)
 
-    scores_dic = DataFrame(map(all_scores, dfs)).median().to_dict()
+    scores_dic = aggregate_scores(dfs)
 
     with open(out_path, mode='w') as f:
         json.dump(scores_dic, f)

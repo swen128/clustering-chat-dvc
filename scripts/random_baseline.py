@@ -1,50 +1,39 @@
 import json
 import pickle
 
-import numpy
 from pandas import DataFrame
-from typing import Dict
+import random
+from .evaluate import aggregate_scores
 
 
-def vocabulary(df: DataFrame) -> Dict[str, int]:
-    tokens = numpy.concatenate(df['tokens'].to_numpy())
-    vocab, count = numpy.unique(tokens, return_counts=True)
+def random_partition(df: DataFrame):
+    n_clusters = df['is_representative'].sum()
+    labels = list(range(n_clusters))
+    representatives = df.sample(n_clusters)
 
-    return {word: n for word, n in zip(vocab, count) if word != '▁'}
+    df['clustering_label'] = random.choices(labels)
 
+    for label, i in zip(labels, representatives.index):
+        df[i, 'clustering_label'] = label
 
-def vocabulary_coverage(df: DataFrame, random_state: int) -> float:
-    n_representatives = df['is_representative'].sum()
-    representatives = df.sample(n_representatives, random_state=random_state)
-    all_vocab = vocabulary(df)
-    covered_vocab = vocabulary(representatives)
-
-    all_weight = sum(n for word, n in all_vocab.items())
-    covered_weight = sum(n for word, n in all_vocab.items() if word in covered_vocab)
-
-    return covered_weight / all_weight
+    df['is_representative'] = df.index.isin(representatives.index)
 
 
-def main(input_path: str, out_path: str, random_state: int):
+def main(input_path: str, out_path: str):
     with open(input_path, mode='rb') as f:
         dfs = pickle.load(f)
 
-    coverages = [vocabulary_coverage(df, random_state) for df in dfs]
+    for df in dfs:
+        random_partition(df)
 
-    json_results = {
-        'vocabulary_coverage_mean': numpy.average(coverages),
-        'vocabulary_coverage_median': numpy.median(coverages),
-        'vocabulary_coverage_max': max(coverages),
-        'vocabulary_coverage_min': min(coverages),
-    }
+    scores_dic = aggregate_scores(dfs)
 
     with open(out_path, mode='w') as f:
-        json.dump(json_results, f)
+        json.dump(scores_dic, f)
 
 
 if __name__ == '__main__':
     main(
         input_path='resources/clustering_results.pkl',
-        out_path='resources/random_baseline.json',
-        random_state=0
+        out_path='resources/random_baseline.json'
     )
