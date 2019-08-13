@@ -6,10 +6,24 @@ deps:
   path: scripts/infer_document_vectors.py
 - md5: d4f5160bc1a97bd3ff9099d01b456f66
   path: resources/dev.csv
-- md5: c96a97e8d9a3b470d20bb18adeaddf28
-  path: resources/doc2vec_model
 - md5: ba2d5a19bd00f3eda69b64ddaef36a9a
   path: resources/tokenizer/sentence_piece.model
+- md5:
+  path: resources/doc2vec/model
+- md5:
+  path: resources/doc2vec/model.docvecs.vectors_docs.npy
+- md5:
+  path: resources/doc2vec/model.docvecs.vectors.npy
+- md5:
+  path: resources/doc2vec/model.trainables.syn1neg.npy
+- md5:
+  path: resources/doc2vec/model.trainables.vectors_docs_lockf.npy
+- md5:
+  path: resources/doc2vec/model.trainables.vectors_lockf.npy
+- md5:
+  path: resources/doc2vec/model..vocabulary.cum_table.npy
+- md5:
+  path: resources/doc2vec/model.wv.vectors.npy
 outs:
 - md5: 759413972714a49f199e19edf12b4b69
   path: resources/document_vectors.pkl
