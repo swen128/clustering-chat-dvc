@@ -3,7 +3,7 @@ import pickle
 
 from pandas import DataFrame
 import random
-from .evaluate import aggregate_scores
+from scripts.evaluate import aggregate_scores
 
 
 def random_partition(df: DataFrame):
