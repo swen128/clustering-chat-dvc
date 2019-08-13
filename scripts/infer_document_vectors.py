@@ -23,7 +23,7 @@ def main(dataset_path: str, doc2vec_path: str, tokenizer_path: str, out_path: st
 if __name__ == '__main__':
     main(
         dataset_path='resources/dev.csv',
-        doc2vec_path='resources/doc2vec_model',
+        doc2vec_path='resources/doc2vec/model',
         tokenizer_path='resources/tokenizer/sentence_piece.model',
         out_path='resources/document_vectors.pkl',
         epochs=20
