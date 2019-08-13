@@ -29,6 +29,6 @@ if __name__ == '__main__':
         train_data_path='resources/doc2vec_corpus.txt',
         out_path='resources/doc2vec/model',
         workers=2,
-        epochs=20,
+        epochs=5,
         vector_size=100
     )
