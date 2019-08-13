@@ -21,7 +21,7 @@ deps:
 - md5:
   path: resources/doc2vec/model.trainables.vectors_lockf.npy
 - md5:
-  path: resources/doc2vec/model..vocabulary.cum_table.npy
+  path: resources/doc2vec/model.vocabulary.cum_table.npy
 - md5:
   path: resources/doc2vec/model.wv.vectors.npy
 outs:
