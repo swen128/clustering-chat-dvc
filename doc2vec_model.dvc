@@ -38,7 +38,7 @@ outs:
   metric: false
   persist: false
 - md5:
-  path: resources/doc2vec/model..vocabulary.cum_table.npy
+  path: resources/doc2vec/model.vocabulary.cum_table.npy
   cache: true
   metric: false
   persist: false
