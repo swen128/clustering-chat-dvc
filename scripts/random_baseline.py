@@ -11,7 +11,7 @@ def random_partition(df: DataFrame):
     labels = list(range(n_clusters))
     representatives = df.sample(n_clusters)
 
-    df['clustering_label'] = random.choices(labels)
+    df['clustering_label'] = random.choices(labels, k=n_clusters)
 
     for label, i in zip(labels, representatives.index):
         df[i, 'clustering_label'] = label
