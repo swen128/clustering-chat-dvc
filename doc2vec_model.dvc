@@ -7,8 +7,43 @@ deps:
 - md5: 6ce2ef5b34c2f125617b3d2c18140fa1
   path: resources/doc2vec_corpus.txt
 outs:
-- md5: c96a97e8d9a3b470d20bb18adeaddf28
-  path: resources/doc2vec_model
+- md5:
+  path: resources/doc2vec/model
+  cache: true
+  metric: false
+  persist: false
+- md5:
+  path: resources/doc2vec/model.docvecs.vectors_docs.npy
+  cache: true
+  metric: false
+  persist: false
+- md5:
+  path: resources/doc2vec/model.docvecs.vectors.npy
+  cache: true
+  metric: false
+  persist: false
+- md5:
+  path: resources/doc2vec/model.trainables.syn1neg.npy
+  cache: true
+  metric: false
+  persist: false
+- md5:
+  path: resources/doc2vec/model.trainables.vectors_docs_lockf.npy
+  cache: true
+  metric: false
+  persist: false
+- md5:
+  path: resources/doc2vec/model.trainables.vectors_lockf.npy
+  cache: true
+  metric: false
+  persist: false
+- md5:
+  path: resources/doc2vec/model..vocabulary.cum_table.npy
+  cache: true
+  metric: false
+  persist: false
+- md5:
+  path: resources/doc2vec/model.wv.vectors.npy
   cache: true
   metric: false
   persist: false
