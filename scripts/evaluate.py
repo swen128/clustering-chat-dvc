@@ -6,7 +6,7 @@ from pandas import DataFrame
 from typing import Dict
 
 from sklearn.metrics import calinski_harabasz_score, silhouette_score, davies_bouldin_score
-from toolz import assoc
+from toolz import merge
 
 
 def vocabulary(df: DataFrame) -> Dict[str, int]:
@@ -16,7 +16,7 @@ def vocabulary(df: DataFrame) -> Dict[str, int]:
     return {word: n for word, n in zip(vocab, count) if word != '▁'}
 
 
-def vocabulary_coverage(df: DataFrame) -> float:
+def vocabulary_coverage(df: DataFrame) -> Dict[str, float]:
     representatives = df.loc[df['is_representative']]
     all_vocab = vocabulary(df)
     covered_vocab = vocabulary(representatives)
@@ -24,7 +24,10 @@ def vocabulary_coverage(df: DataFrame) -> float:
     all_weight = sum(n for word, n in all_vocab.items())
     covered_weight = sum(n for word, n in all_vocab.items() if word in covered_vocab)
 
-    return covered_weight / all_weight
+    return dict(
+        vocabulary_coverage=len(covered_vocab) / len(all_vocab),
+        weighted_vocabulary_coverage=covered_weight / all_weight
+    )
 
 
 def clustering_scores(df: DataFrame) -> Dict[str, float]:
@@ -39,9 +42,10 @@ def clustering_scores(df: DataFrame) -> Dict[str, float]:
 
 
 def all_scores(df: DataFrame) -> Dict[str, float]:
-    scores = clustering_scores(df)
-    vocab_cover = vocabulary_coverage(df)
-    return assoc(scores, 'vocabulary_coverage', vocab_cover)
+    return merge(
+        clustering_scores(df),
+        vocabulary_coverage(df)
+    )
 
 
 def main(input_path: str, out_path: str):
