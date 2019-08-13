@@ -22,7 +22,7 @@ if __name__ == '__main__':
     main(
         train_data_path='resources/doc2vec_corpus.txt',
         out_path='resources/doc2vec_model',
-        workers=10,
+        workers=2,
         epochs=20,
         vector_size=100
     )
