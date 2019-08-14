@@ -21,7 +21,7 @@ def get_transformer(model, transformer_path: str, sentence_piece_path: str, use_
     transfomer_model: PreTrainedModel = model.from_pretrained(transformer_path)
     tokenizer = load_sentencepiece(sentence_piece_path)
 
-    def infer_vector(tokens: List[str], pooling_layer: int = -2, pooling_strategy: str = "REDUCE_MEAN"):
+    def infer_vector(tokens: List[str], pooling_strategy: str = "REDUCE_MEAN"):
         _tokens = ['[CLS]'] + tokens + ['[SEP]']
         ids = list(map(tokenizer.piece_to_id, _tokens))
         tokens_tensor = torch.tensor(ids).reshape(1, -1)
@@ -32,9 +32,9 @@ def get_transformer(model, transformer_path: str, sentence_piece_path: str, use_
 
         transfomer_model.eval()
         with torch.no_grad():
-            all_encoder_layers, _ = transfomer_model.model(tokens_tensor)
+            all_encoder_layers, _ = transfomer_model(tokens_tensor)
 
-        embedding = all_encoder_layers[pooling_layer].cpu().numpy()[0]
+        embedding = all_encoder_layers[0, :, :].cpu().numpy()
         if pooling_strategy == "REDUCE_MEAN":
             return numpy.mean(embedding, axis=0)
         elif pooling_strategy == "REDUCE_MAX":
