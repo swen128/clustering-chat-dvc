@@ -9,3 +9,4 @@ pandas>=0.24.0
 toolz
 torch
 pytorch-transformers
+tensorflow

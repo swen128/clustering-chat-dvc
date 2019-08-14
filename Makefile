@@ -8,3 +8,7 @@ init:
 	python3 -m venv venv
 	source venv/bin/activate
 	pip3 install -r requirements.txt
+
+dep:
+	pip3 install -r requirements_to_freeze.txt
+	pip3 freeze > requirements.txt
