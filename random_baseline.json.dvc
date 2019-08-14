@@ -1,4 +1,4 @@
-md5: 8556a25ce10990a204a5c7898711fd5a
+md5: 7db4c44718065fb4c72ce2dfbf20c906
 cmd: PYTHONPATH=. python3 scripts/random_baseline.py
 wdir: .
 deps:
@@ -6,8 +6,10 @@ deps:
   path: resources/clustering_results.pkl
 - md5: fd597714b30e9700c67ebb1b14b12076
   path: scripts/random_baseline.py
+- md5: 974bc84b9dcb285cae074fcd36ce29ff
+  path: scripts/evaluate.py
 outs:
-- md5: 757e5c7403fe68b325da1bb0c95d0d21
+- md5: c7f343aad0240de0670c17c03cf546e3
   path: resources/random_baseline.json
   cache: true
   metric: false
