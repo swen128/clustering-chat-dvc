@@ -1,30 +1,34 @@
-from typing import List
+from typing import List, Callable
 
 import pandas
-from gensim.models import Doc2Vec
 from numpy import ndarray
 
+from clustering_chat.document_embedding import get_doc2vec
 from clustering_chat.tokenizer import load_sentencepiece
 
+DocumentEmbedding = Callable[[List[str]], ndarray]
 
-def main(dataset_path: str, doc2vec_path: str, tokenizer_path: str, out_path: str, **doc2vec_infer_options):
+
+def main(embedding: DocumentEmbedding, dataset_path: str, tokenizer_path: str) -> pandas.DataFrame:
     df = pandas.read_csv(dataset_path)
-    doc2vec = Doc2Vec.load(doc2vec_path)
     tokenizer = load_sentencepiece(tokenizer_path).EncodeAsPieces
 
-    def infer_vector(tokens: List[str]) -> ndarray:
-        return doc2vec.infer_vector(tokens, **doc2vec_infer_options)
-
     df['tokens'] = df['message'].fillna('').map(tokenizer)
-    df['document_vector'] = df['tokens'].map(infer_vector)
-    df.to_pickle(out_path)
+    df['document_vector'] = df['tokens'].map(embedding)
+
+    return df
 
 
 if __name__ == '__main__':
-    main(
-        dataset_path='resources/dev.csv',
-        doc2vec_path='resources/doc2vec/model',
-        tokenizer_path='resources/tokenizer/sentence_piece.model',
-        out_path='resources/document_vectors.pkl',
+    doc2vec = get_doc2vec(
+        model_path='resources/doc2vec/model',
         epochs=20
     )
+
+    df = main(
+        embedding=doc2vec,
+        dataset_path='resources/dev.csv',
+        tokenizer_path='resources/tokenizer/sentence_piece.model'
+    )
+
+    df.to_pickle(path='resources/document_vectors.pkl')
