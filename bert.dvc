@@ -1,16 +1,16 @@
-md5:
+md5: bd6413df555fb3ee7b8b99f6a160a9de
 cmd: ./scripts/download_bert_ja.sh
 wdir: .
 deps:
-- md5:
+- md5: 42e5829a94191562e20f77b8c4edd300
   path: scripts/download_bert_ja.sh
 outs:
-- md5:
+- md5: e8728ee6b1f058fb0f5293cfe0326aba
   path: resources/BERT_ja/wiki-ja.model
   cache: true
   metric: false
   persist: false
-- md5:
+- md5: 7fb54f2c85db4531f03191f583d2a78d
   path: resources/BERT_ja/pytorch_model.bin
   cache: true
   metric: false

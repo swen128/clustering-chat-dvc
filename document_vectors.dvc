@@ -1,19 +1,19 @@
-md5:
+md5: 7a66bd2161a7f21a13b3d88daed5af7c
 cmd: PYTHONPATH=. python3 scripts/infer_document_vectors.py
 wdir: .
 deps:
-- md5:
+- md5: 762be51bc32249ea4b1e3c061835a74b
   path: scripts/infer_document_vectors.py
-- md5:
+- md5: a25cccf1238b686e122321972f732219
   path: resources/dev.csv
-- md5:
+- md5: e8728ee6b1f058fb0f5293cfe0326aba
   path: resources/BERT_ja/wiki-ja.model
-- md5:
+- md5: 7fb54f2c85db4531f03191f583d2a78d
   path: resources/BERT_ja/pytorch_model.bin
-- md5:
+- md5: 46d342ff70ca7c05e446277294806019
   path: resources/BERT_ja/config.json
 outs:
-- md5:
+- md5: 92a8447cad19cec171788adc9e87b2f6
   path: resources/document_vectors.pkl
   cache: true
   metric: false
