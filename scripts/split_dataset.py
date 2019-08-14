@@ -4,8 +4,7 @@ import pandas
 from sklearn.model_selection import train_test_split
 
 
-def main(input_path: str, output_dir: str,
-         r_train: float = 0.8, r_dev: float = 0.1, r_test: float = 0.1, random_seed: int = 0):
+def main(input_path: str, output_dir: str, r_train: float, r_dev: float, r_test: float, random_seed: int):
     df = pandas.read_csv(input_path)
     videos = df.groupby('video.url')
     dfs = [df for _, df in videos]
@@ -25,4 +24,11 @@ def main(input_path: str, output_dir: str,
 
 
 if __name__ == '__main__':
-    main('resources/raw.csv', 'resources')
+    main(
+        input_path='resources/raw.csv',
+        output_dir='resources',
+        r_train=0.98,
+        r_dev=0.01,
+        r_test=0.01,
+        random_seed=0
+    )
