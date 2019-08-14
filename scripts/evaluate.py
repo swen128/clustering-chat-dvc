@@ -1,10 +1,11 @@
 import json
 import pickle
+from statistics import mean
+from typing import Dict, Iterable
 
 import numpy
 from pandas import DataFrame
-from typing import Dict, Iterable
-
+from scipy.stats import entropy
 from sklearn.metrics import calinski_harabasz_score, silhouette_score, davies_bouldin_score
 from toolz import merge
 
@@ -30,6 +31,16 @@ def vocabulary_coverage(df: DataFrame) -> Dict[str, float]:
     )
 
 
+def entropy_reduction(df: DataFrame) -> Dict[str, float]:
+    all_vocab = vocabulary(df)
+    clusters_vocabs = [vocabulary(df_cluster) for _, df_cluster in df.groupby('clustering_label')]
+
+    all_entropy = entropy(list(all_vocab.values()))
+    clusters_entropies = [entropy(list(vocab.values())) for vocab in clusters_vocabs]
+
+    return dict(entropy_reduction=all_entropy - mean(clusters_entropies))
+
+
 def clustering_scores(df: DataFrame) -> Dict[str, float]:
     X = numpy.stack(df['document_vector'].values)
     labels = df['clustering_label']
@@ -44,6 +55,7 @@ def clustering_scores(df: DataFrame) -> Dict[str, float]:
 def all_scores(df: DataFrame) -> Dict[str, float]:
     return merge(
         clustering_scores(df),
+        entropy_reduction(df),
         vocabulary_coverage(df)
     )
 
@@ -65,5 +77,5 @@ def main(input_path: str, out_path: str):
 if __name__ == '__main__':
     main(
         input_path='resources/clustering_results.pkl',
-        out_path='resources/eval.json'
+        out_path='resources/eval_test.json'
     )
