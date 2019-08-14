@@ -77,5 +77,5 @@ def main(input_path: str, out_path: str):
 if __name__ == '__main__':
     main(
         input_path='resources/clustering_results.pkl',
-        out_path='resources/eval_test.json'
+        out_path='resources/eval.json'
     )
