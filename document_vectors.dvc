@@ -5,6 +5,8 @@ deps:
 - md5:
   path: scripts/infer_document_vectors.py
 - md5:
+  path: resources/dev.csv
+- md5:
   path: resources/BERT_ja/wiki-ja.model
 - md5:
   path: resources/BERT_ja/pytorch_model.bin
