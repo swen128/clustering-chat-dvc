@@ -1,0 +1,22 @@
+md5:
+cmd: ./scripts/download_bert_ja.sh
+wdir: .
+deps:
+- md5:
+  path: scripts/download_bert_ja.sh
+outs:
+- md5:
+  path: resources/BERT_ja/wiki-ja.vocab
+  cache: true
+  metric: false
+  persist: false
+- md5:
+  path: resources/BERT_ja/wiki-ja.model
+  cache: true
+  metric: false
+  persist: false
+- md5:
+  path: resources/BERT_ja/pytorch_model.bin
+  cache: true
+  metric: false
+  persist: false

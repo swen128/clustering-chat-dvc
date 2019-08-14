@@ -2,8 +2,8 @@ from typing import List, Callable
 
 import pandas
 from numpy import ndarray
-
-from clustering_chat.document_embedding import get_doc2vec
+from pytorch_transformers import BertModel
+from clustering_chat.document_embedding import get_transformer
 from clustering_chat.tokenizer import load_sentencepiece
 
 DocumentEmbedding = Callable[[List[str]], ndarray]
@@ -20,15 +20,18 @@ def main(embedding: DocumentEmbedding, dataset_path: str, tokenizer_path: str) -
 
 
 if __name__ == '__main__':
-    doc2vec = get_doc2vec(
-        model_path='resources/doc2vec/model',
-        epochs=20
-    )
+    sentencepiece_path = 'resources/BERT_ja/wiki-ja.model'
 
+    bert = get_transformer(
+        BertModel,
+        transformer_path='resources/BERT_ja',
+        sentence_piece_path=sentencepiece_path,
+        use_cuda=True
+    )
     df = main(
-        embedding=doc2vec,
+        embedding=bert,
         dataset_path='resources/dev.csv',
-        tokenizer_path='resources/tokenizer/sentence_piece.model'
+        tokenizer_path=sentencepiece_path
     )
 
     df.to_pickle(path='resources/document_vectors.pkl')
