@@ -18,7 +18,7 @@ def test_aggregate_scores():
         'Calinski_Harabasz': 554722.4666666666,
         'Davies_Bouldin': 0.0007751781003320896,
         'Silhouette': 0.6656330958633799,
-        'entropy_reduction': 0.7520386983881369,
+        'entropy_reduction': 0.41972078914818756,
         'vocabulary_coverage': 0.6666666666666666,
         'weighted_vocabulary_coverage': 0.6666666666666666
     }

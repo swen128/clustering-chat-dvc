@@ -38,7 +38,9 @@ def entropy_reduction(df: DataFrame) -> Dict[str, float]:
     all_entropy = entropy(list(all_vocab.values()))
     clusters_entropies = [entropy(list(vocab.values())) for vocab in clusters_vocabs]
 
-    return dict(entropy_reduction=all_entropy - mean(clusters_entropies))
+    reduction = (all_entropy - mean(clusters_entropies)) / all_entropy
+
+    return dict(entropy_reduction=reduction)
 
 
 def clustering_scores(df: DataFrame) -> Dict[str, float]:
