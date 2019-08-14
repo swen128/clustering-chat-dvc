@@ -1,18 +1,18 @@
-md5: 4347d0cb25e10602eb88d35c61506c28
+md5: afcd65360ec1aff9b7a5b3759ab9d853
 cmd: PYTHONPATH=. python3 scripts/train_doc2vec.py
 wdir: .
 deps:
 - md5: 6a606005e53b31616822be7190447433
   path: scripts/train_doc2vec.py
-- md5: 35701ae9ce3b27bc218cf6761cb363cf
+- md5: a4cbc57772755fa28e03b8d9068a4e96
   path: resources/doc2vec_corpus.txt
 outs:
-- md5: 7ce9706aa3d35fd157ba4a1b6fec9c29
+- md5: 611ca69b1d74ab8616751f13907b88ad
   path: resources/doc2vec/model
   cache: true
   metric: false
   persist: false
-- md5: 2d5b1bd878c1110dd68a948ac73f616b
+- md5: 7abf6427f7e161b1813ef2d2b83747da
   path: resources/doc2vec/model.docvecs.vectors_docs.npy
   cache: true
   metric: false
@@ -22,12 +22,12 @@ outs:
   cache: true
   metric: false
   persist: false
-- md5: 851a89238de475d3e61a45b600455ede
+- md5: 6c7ef8afc6abc40bd5e8353b7a625fd4
   path: resources/doc2vec/model.trainables.syn1neg.npy
   cache: true
   metric: false
   persist: false
-- md5: baa24e224a941df0b80f49a3e957f54c
+- md5: 798e02631bfb9b67a9069b819d2d1833
   path: resources/doc2vec/model.trainables.vectors_docs_lockf.npy
   cache: true
   metric: false
@@ -37,12 +37,12 @@ outs:
   cache: true
   metric: false
   persist: false
-- md5: 459c52332d14c6000eeea2fd60ae62a2
+- md5: b0652661a8ee385ef44a9613ec7f0014
   path: resources/doc2vec/model.vocabulary.cum_table.npy
   cache: true
   metric: false
   persist: false
-- md5: 459b507d4d240db4015164e20280b6de
+- md5: 2f202627107b7e31507db0fb4234c746
   path: resources/doc2vec/model.wv.vectors.npy
   cache: true
   metric: false

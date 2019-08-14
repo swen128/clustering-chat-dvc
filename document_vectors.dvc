@@ -1,31 +1,31 @@
-md5: 8bb8244f7f85ac68393198d2da8b3b66
+md5: dfb796e6bfbc614546d5cf581fba6903
 cmd: PYTHONPATH=. python3 scripts/infer_document_vectors.py
 wdir: .
 deps:
 - md5: 67430437884fd52c7cf69c5a3f595854
   path: scripts/infer_document_vectors.py
-- md5: a52d20dbf89a9d61472a85ede9e07356
+- md5: a25cccf1238b686e122321972f732219
   path: resources/dev.csv
-- md5: fc3e612e91f983d78a62a3ebef9af737
+- md5: 1c287100308cb601601acb8b0296406b
   path: resources/tokenizer/sentence_piece.model
-- md5: 7ce9706aa3d35fd157ba4a1b6fec9c29
+- md5: 611ca69b1d74ab8616751f13907b88ad
   path: resources/doc2vec/model
-- md5: 2d5b1bd878c1110dd68a948ac73f616b
+- md5: 7abf6427f7e161b1813ef2d2b83747da
   path: resources/doc2vec/model.docvecs.vectors_docs.npy
 - md5: 113e90bb8cc26200ab987f2f02d03d36
   path: resources/doc2vec/model.docvecs.vectors.npy
-- md5: 851a89238de475d3e61a45b600455ede
+- md5: 6c7ef8afc6abc40bd5e8353b7a625fd4
   path: resources/doc2vec/model.trainables.syn1neg.npy
-- md5: baa24e224a941df0b80f49a3e957f54c
+- md5: 798e02631bfb9b67a9069b819d2d1833
   path: resources/doc2vec/model.trainables.vectors_docs_lockf.npy
 - md5: 28ea7461b6eadd1aef002f2f11381fbc
   path: resources/doc2vec/model.trainables.vectors_lockf.npy
-- md5: 459c52332d14c6000eeea2fd60ae62a2
+- md5: b0652661a8ee385ef44a9613ec7f0014
   path: resources/doc2vec/model.vocabulary.cum_table.npy
-- md5: 459b507d4d240db4015164e20280b6de
+- md5: 2f202627107b7e31507db0fb4234c746
   path: resources/doc2vec/model.wv.vectors.npy
 outs:
-- md5: 93fefae037d5d8c9e38a0467ec466c3e
+- md5: 6978f933a53dce91d657fcc32deb8bff
   path: resources/document_vectors.pkl
   cache: true
   metric: false
