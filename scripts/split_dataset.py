@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 
 
 def main(input_path: str, output_dir: str, r_train: float, r_dev: float, r_test: float, random_seed: int):
-    df = pandas.read_csv(input_path)
+    df = pandas.read_csv(input_path).dropna(subset=['message'])
     videos = df.groupby('video.url')
     dfs = [df for _, df in videos]
 
