@@ -1,10 +1,10 @@
-md5: 
+md5: 3243e23cad70d6cf67785a748d0f5159
 cmd: PYTHONPATH=. python3 scripts/infer_document_vectors.py
 wdir: .
 deps:
 - md5: 762be51bc32249ea4b1e3c061835a74b
   path: scripts/infer_document_vectors.py
-- md5:
+- md5: 6344fa02c610de098db9b2d2def3cb9e
   path: clustering_chat/document_embedding.py
 - md5: a25cccf1238b686e122321972f732219
   path: resources/dev.csv
@@ -15,7 +15,7 @@ deps:
 - md5: 46d342ff70ca7c05e446277294806019
   path: resources/BERT_ja/config.json
 outs:
-- md5: 92a8447cad19cec171788adc9e87b2f6
+- md5: aa14c34e4a621987c953d0ea966375ee
   path: resources/document_vectors.pkl
   cache: true
   metric: false
