@@ -17,11 +17,12 @@ def get_doc2vec(model_path: str, **options):
     return infer_vector
 
 
-def get_transformer(model, transformer_path: str, sentence_piece_path: str, use_cuda: bool = False):
+def get_transformer(model, transformer_path: str, sentence_piece_path: str,
+                    use_cuda: bool = False, pooling_strategy: str = "REDUCE_MEAN"):
     transformer_model: PreTrainedModel = model.from_pretrained(transformer_path)
     tokenizer = load_sentencepiece(sentence_piece_path)
 
-    def infer_vector(tokens: List[str], pooling_strategy: str = "REDUCE_MEAN"):
+    def infer_vector(tokens: List[str]):
         _tokens = ['[CLS]'] + tokens + ['[SEP]']
         ids = list(map(tokenizer.piece_to_id, _tokens))
         tokens_tensor = torch.tensor(ids).reshape(1, -1)
