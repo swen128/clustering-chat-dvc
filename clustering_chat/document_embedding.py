@@ -18,7 +18,7 @@ def get_doc2vec(model_path: str, **options):
 
 
 def get_transformer(model, transformer_path: str, sentence_piece_path: str,
-                    use_cuda: bool = False, pooling_strategy: str = "REDUCE_MAX"):
+                    use_cuda: bool = False, pooling_strategy: str = "REDUCE_MAX", pooling_layer: int = -2):
     transformer_model: PreTrainedModel = model.from_pretrained(transformer_path)
     tokenizer = load_sentencepiece(sentence_piece_path)
 
@@ -33,9 +33,9 @@ def get_transformer(model, transformer_path: str, sentence_piece_path: str,
 
         transformer_model.eval()
         with torch.no_grad():
-            all_encoder_layers, _ = transformer_model(tokens_tensor)
+            _, _, hidden_states = transformer_model(tokens_tensor)
 
-        embedding = all_encoder_layers[0, :, :].cpu().numpy()
+        embedding = hidden_states[pooling_layer][0, :, :].cpu().numpy()
         if pooling_strategy == "REDUCE_MEAN":
             return numpy.mean(embedding, axis=0)
         elif pooling_strategy == "REDUCE_MAX":
