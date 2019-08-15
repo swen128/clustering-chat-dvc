@@ -18,7 +18,7 @@ def get_doc2vec(model_path: str, **options):
 
 
 def get_transformer(model, transformer_path: str, sentence_piece_path: str,
-                    use_cuda: bool = False, pooling_strategy: str = "REDUCE_MEAN"):
+                    use_cuda: bool = False, pooling_strategy: str = "REDUCE_MAX"):
     transformer_model: PreTrainedModel = model.from_pretrained(transformer_path)
     tokenizer = load_sentencepiece(sentence_piece_path)
 
