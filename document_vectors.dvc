@@ -1,9 +1,11 @@
-md5: 7a66bd2161a7f21a13b3d88daed5af7c
+md5: 
 cmd: PYTHONPATH=. python3 scripts/infer_document_vectors.py
 wdir: .
 deps:
 - md5: 762be51bc32249ea4b1e3c061835a74b
   path: scripts/infer_document_vectors.py
+- md5:
+  path: clustering_chat/document_embedding.py
 - md5: a25cccf1238b686e122321972f732219
   path: resources/dev.csv
 - md5: e8728ee6b1f058fb0f5293cfe0326aba
