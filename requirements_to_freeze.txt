@@ -10,3 +10,4 @@ toolz
 torch
 pytorch-transformers
 tensorflow
+matplotlib

@@ -8,6 +8,7 @@ botocore==1.12.205
 certifi==2019.6.16
 chardet==3.0.4
 cloudpickle==1.2.1
+cycler==0.10.0
 Cython==0.29.13
 dask==2.2.0
 docutils==0.14
@@ -24,8 +25,10 @@ jmespath==0.9.4
 joblib==0.13.2
 Keras-Applications==1.0.8
 Keras-Preprocessing==1.1.0
+kiwisolver==1.1.0
 locket==0.2.0
 Markdown==3.1.1
+matplotlib==3.1.1
 more-itertools==7.2.0
 numpy==1.17.0
 packaging==19.1
