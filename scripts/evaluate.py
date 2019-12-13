@@ -6,7 +6,7 @@ from typing import Dict, Iterable
 import numpy
 from pandas import DataFrame
 from scipy.stats import entropy
-from sklearn.metrics import calinski_harabasz_score, silhouette_score, davies_bouldin_score
+from sklearn.metrics import calinski_harabasz_score, silhouette_score, davies_bouldin_score, adjusted_mutual_info_score
 from toolz import merge
 
 
@@ -29,6 +29,18 @@ def vocabulary_coverage(df: DataFrame) -> Dict[str, float]:
         vocabulary_coverage=len(covered_vocab) / len(all_vocab),
         weighted_vocabulary_coverage=covered_weight / all_weight
     )
+
+
+def cw_ami(df: DataFrame) -> Dict[str, float]:
+    def pairs():
+        for _, row in df.iterrows():
+            for token in row['tokens']:
+                yield token, row['clustering_label']
+
+    tokens, labels = zip(*pairs())
+    score = adjusted_mutual_info_score(labels, tokens, average_method='geometric')
+
+    return dict(cw_ami=score)
 
 
 def entropy_reduction(df: DataFrame) -> Dict[str, float]:
@@ -58,7 +70,8 @@ def all_scores(df: DataFrame) -> Dict[str, float]:
     return merge(
         clustering_scores(df),
         entropy_reduction(df),
-        vocabulary_coverage(df)
+        vocabulary_coverage(df),
+        cw_ami(df)
     )
 
 
