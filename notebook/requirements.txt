@@ -2,3 +2,4 @@ matplotlib
 scikit-learn
 numpy
 pandas
+japanize_matplotlib

@@ -2,6 +2,7 @@
 import math
 import pickle
 
+import japanize_matplotlib
 import matplotlib.pyplot as plt
 import numpy
 from numpy import array_split
@@ -41,8 +42,6 @@ messages = df['message'].to_list()
 X[0].size
 
 # %%
-plt.rcParams['font.family'] = 'IPAGothic'
-
 fig, ax = plt.subplots()
 sc = plt.scatter(xs, ys)
 
@@ -56,8 +55,8 @@ def update_annot(ind):
     pos = sc.get_offsets()[ind["ind"][0]]
     annot.xy = pos
     indices = " ".join(list(map(str, ind["ind"])))
-    labels = " ".join([messages[n] for n in ind["ind"]])
-    text = f"{indices}, {labels}"
+    labels = "\n".join([messages[n] for n in ind["ind"]])
+    text = f"{labels}"
     annot.set_text(text)
 
 
