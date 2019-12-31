@@ -1,13 +1,16 @@
 import json
 import pickle
 from statistics import mean
-from typing import Dict, Iterable
+from typing import Dict, Iterable, List
 
 import numpy
 from pandas import DataFrame
 from scipy.stats import entropy
 from sklearn.metrics import calinski_harabasz_score, silhouette_score, davies_bouldin_score, adjusted_mutual_info_score
 from toolz import merge
+
+from clustering_chat.stop_words import remove_stop_words, is_stop_word
+from clustering_chat.mecab import mecab_tag
 
 
 def vocabulary(df: DataFrame) -> Dict[str, int]:
@@ -66,7 +69,15 @@ def clustering_scores(df: DataFrame) -> Dict[str, float]:
     )
 
 
+def tokenize(sentence: str) -> List[str]:
+    tags = mecab_tag(sentence)
+    return [word for word, tag in tags if not
+    (tag.startswith('助詞') or tag.startswith('助動詞') or tag.startswith('記号') or is_stop_word(word))]
+
+
 def all_scores(df: DataFrame) -> Dict[str, float]:
+    df['tokens'] = df['message'].map(tokenize)
+
     return merge(
         clustering_scores(df),
         entropy_reduction(df),
