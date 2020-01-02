@@ -1,49 +1,39 @@
 # %%
-import math
 import pickle
 
 import japanize_matplotlib
 import matplotlib.pyplot as plt
 import numpy
-from numpy import array_split
 from pandas import DataFrame
 from sklearn.manifold import TSNE
 from sklearn.decomposition import PCA
 
-
 # %%
-def partition_df(df: DataFrame, n: int):
-    sections = math.ceil(len(df.index) / n)
-    split = array_split(df, sections)
-    return split
-
-
-# %%
-test_group_size = 500
-
-dataset_path = './resources/document_vectors.pkl'
+dataset_path = './resources/clustering_results.pkl'
 with open(dataset_path, mode='rb') as f:
-    df_all: DataFrame = pickle.load(f)
-
-    df_all.sort_values(by=['video.url', 'published_at'], inplace=True)
-
-    dfs = partition_df(df_all, test_group_size)
+    df: DataFrame = pickle.load(f)[250]
 
 # %%
-df = dfs[0]
+df.drop_duplicates(subset=['message'], inplace=True)
 X = numpy.stack(df['document_vector'])
 
-embedded = TSNE(n_components=2, perplexity=50).fit_transform(X)
+embedded = TSNE(n_components=2, perplexity=10, random_state=0).fit_transform(X)
+# embedded = PCA(n_components=2).fit_transform(X)
 
 xs, ys = zip(*embedded)
 messages = df['message'].to_list()
 
 # %%
-X[0].size
 
-# %%
+# https://sashat.me/2017/01/11/list-of-20-simple-distinct-colors/
+color_map = [
+    '#e6194B', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#42d4f4', '#f032e6', '#bfef45', '#fabebe',
+    '#469990', '#e6beff', '#9A6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#a9a9a9'
+]
+colors = [color_map[i] for i in df['clustering_label']]
+
 fig, ax = plt.subplots()
-sc = plt.scatter(xs, ys)
+sc = plt.scatter(xs, ys, c=colors)
 
 annot = ax.annotate("", xy=(0, 0), xytext=(20, 20), textcoords="offset points",
                     bbox=dict(boxstyle="round", fc="w"),
