@@ -37,8 +37,8 @@ if __name__ == '__main__':
     main(
         dataset_path='resources/document_vectors.pkl',
         output_path='resources/clustering_results.pkl',
-        test_group_size=300,
-        n_clusters=30,
+        test_group_size=200,
+        n_clusters=20,
         random_state=0,
         n_jobs=4
     )
