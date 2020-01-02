@@ -1,13 +1,13 @@
-md5: 1b4e764a05c6e9bd5531426e16a8d334
+md5: ec946d5cc1b6c3f79fc255dd06dbaf05
 cmd: PYTHONPATH=. MKL_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 python3 scripts/clustering.py
 wdir: .
 deps:
-- md5: ec1af3341d634e94e0931435207cec51
+- md5: 1dfc3d014a68111bae68f9847595d989
   path: scripts/clustering.py
-- md5: 680fe3aba5917b384dd42fe6e9ccbc35
+- md5: 1239872a29080fc2e5cead087e8ae606
   path: resources/document_vectors.pkl
 outs:
-- md5: 1fe62dec97a9488baa6ef280e96a2156
+- md5: 88ab5bc730186b5c5af5b7cdfeac5fe9
   path: resources/clustering_results.pkl
   cache: true
   metric: false

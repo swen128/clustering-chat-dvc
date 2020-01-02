@@ -30,5 +30,5 @@ if __name__ == '__main__':
         out_path='resources/doc2vec/model',
         workers=2,
         epochs=5,
-        vector_size=100
+        vector_size=50
     )

@@ -1,4 +1,4 @@
-md5: 2ddd1f7bff04af1a38c22c65a8b2b50e
+md5: 69dbc3dedbedb1fee756933873f7d9f3
 cmd: PYTHONPATH=. python3 scripts/infer_document_vectors.py
 wdir: .
 deps:
@@ -10,12 +10,24 @@ deps:
   path: resources/dev.csv
 - md5: e8728ee6b1f058fb0f5293cfe0326aba
   path: resources/BERT_ja/wiki-ja.model
-- md5: 7fb54f2c85db4531f03191f583d2a78d
-  path: resources/BERT_ja/pytorch_model.bin
-- md5: a71717cf33e847db9d3e1adb0d06299d
-  path: resources/BERT_ja/config.json
+- md5: 80d4d21c8953f193d60ab36cedadcd6b
+  path: resources/doc2vec/model
+- md5: d321bab58b139153a2635f608c24a320
+  path: resources/doc2vec/model.docvecs.vectors_docs.npy
+- md5: 55e5637c9815665034e31e58b1694c50
+  path: resources/doc2vec/model.docvecs.vectors.npy
+- md5: 806e4481de4582f3f41c31b5de094db2
+  path: resources/doc2vec/model.trainables.syn1neg.npy
+- md5: 798e02631bfb9b67a9069b819d2d1833
+  path: resources/doc2vec/model.trainables.vectors_docs_lockf.npy
+- md5: 28ea7461b6eadd1aef002f2f11381fbc
+  path: resources/doc2vec/model.trainables.vectors_lockf.npy
+- md5: b0652661a8ee385ef44a9613ec7f0014
+  path: resources/doc2vec/model.vocabulary.cum_table.npy
+- md5: 224eeadf6a53768c9b616018d89e2a01
+  path: resources/doc2vec/model.wv.vectors.npy
 outs:
-- md5: 3c7de104a27daa802eacda9dbaa1fbd1
+- md5: 1239872a29080fc2e5cead087e8ae606
   path: resources/document_vectors.pkl
   cache: true
   metric: false

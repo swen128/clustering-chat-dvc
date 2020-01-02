@@ -45,5 +45,5 @@ if __name__ == '__main__':
         dataset_path='resources/document_vectors.pkl',
         output_path='resources/clustering_results.pkl',
         test_group_size=200,
-        clustering_function=spectral
+        clustering_function=k_means
     )

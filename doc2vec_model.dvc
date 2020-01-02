@@ -1,28 +1,28 @@
-md5: afcd65360ec1aff9b7a5b3759ab9d853
+md5: d58a187a31588c4cffa331955d7b851b
 cmd: PYTHONPATH=. python3 scripts/train_doc2vec.py
 wdir: .
 deps:
-- md5: 6a606005e53b31616822be7190447433
+- md5: 5ee1fece2c140fd814a14577a4162aae
   path: scripts/train_doc2vec.py
 - md5: a4cbc57772755fa28e03b8d9068a4e96
   path: resources/doc2vec_corpus.txt
 outs:
-- md5: 611ca69b1d74ab8616751f13907b88ad
+- md5: 80d4d21c8953f193d60ab36cedadcd6b
   path: resources/doc2vec/model
   cache: true
   metric: false
   persist: false
-- md5: 7abf6427f7e161b1813ef2d2b83747da
+- md5: d321bab58b139153a2635f608c24a320
   path: resources/doc2vec/model.docvecs.vectors_docs.npy
   cache: true
   metric: false
   persist: false
-- md5: 113e90bb8cc26200ab987f2f02d03d36
+- md5: 55e5637c9815665034e31e58b1694c50
   path: resources/doc2vec/model.docvecs.vectors.npy
   cache: true
   metric: false
   persist: false
-- md5: 6c7ef8afc6abc40bd5e8353b7a625fd4
+- md5: 806e4481de4582f3f41c31b5de094db2
   path: resources/doc2vec/model.trainables.syn1neg.npy
   cache: true
   metric: false
@@ -42,7 +42,7 @@ outs:
   cache: true
   metric: false
   persist: false
-- md5: 2f202627107b7e31507db0fb4234c746
+- md5: 224eeadf6a53768c9b616018d89e2a01
   path: resources/doc2vec/model.wv.vectors.npy
   cache: true
   metric: false
